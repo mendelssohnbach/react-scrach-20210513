@@ -39,3 +39,51 @@ onst App = () => {
       {!modalIsOpen || <Modal />}
       {!modalIsOpen || <Backdrop />}
 ```
+
+## 親子間のイベント連携
+
+親コンポーネントで呼び出した子コンポーネント。
+子コンポーネントで発生するイベント。
+
+状態を管理するには？
+
+
+```javascript:Todo.jsx
+  // state定義
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+...
+  // イベント定義
+  const closeModalHandler = () => {
+    setModalIsOpen(false);
+  };
+  ...
+    return (
+      // イベントをpropsとして属性定義
+      {modalIsOpen && <Modal onCancel={closeModalHandler} onConfirm={closeModalHandler} />}
+```
+
+```javascript:Modal.jsx
+// props受け取り
+const Modal = (props) => {
+  // 関数定義:propsに.onCancelイベント付与
+  const cancelHandler = () => {
+    props.onCancel();
+  };
+
+  // 関数定義:propsに.onConfirmイベント付与
+  const confirmHandler = () => {
+    props.onConfirm();
+  };
+
+  return (
+  ...
+      // onClick属性にcancelHandler関数設定
+      <button className="btn btn--alt" onClick={cancelHandler}>
+        Cancel
+      </button>
+      // onClick属性にconfirmHandler関数設定
+      <button className="btn" onClick={confirmHandler}>
+        Confirm
+      </button>
+```
+
