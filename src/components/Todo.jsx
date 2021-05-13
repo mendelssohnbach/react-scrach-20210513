@@ -1,9 +1,11 @@
+import { useState } from 'react';
 import '../../src/index.css';
 
 const Todo = (props) => {
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const deleteHandler = () => {
-    console.log('Clicked');
-    console.log(props.text);
+    setModalIsOpen(false);
   };
 
   return (
