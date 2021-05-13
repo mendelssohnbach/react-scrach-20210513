@@ -1,3 +1,5 @@
+import '../src/index.css';
+
 const Todo = () => {
   return (
     <div className="card">
