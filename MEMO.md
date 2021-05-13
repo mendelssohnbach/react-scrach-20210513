@@ -22,3 +22,20 @@ onst App = () => {
   );
 };
 ```
+
+## 同じ結果になるコード
+
+```javascript
+  const deleteHandler = () => {
+    setModalIsOpen(true);
+  };
+  ...
+        // modalIsOpenが
+      // false -> 左オペランドを返す
+      // true -> 右オペランドを返す
+      {modalIsOpen && <Modal />}
+      {modalIsOpen && <Backdrop />}
+
+      {!modalIsOpen || <Modal />}
+      {!modalIsOpen || <Backdrop />}
+```
