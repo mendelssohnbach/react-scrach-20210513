@@ -5,6 +5,8 @@ const App = () => {
     <div>
       <h1>My Todos</h1>
       <Todo />
+      <Todo />
+      <Todo />
     </div>
   );
 };
