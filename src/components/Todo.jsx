@@ -5,6 +5,7 @@ const Todo = (props) => {
     console.log('Clicked');
     console.log(props.text);
   };
+
   return (
     <div className="card">
       <h2>{props.text}</h2>
